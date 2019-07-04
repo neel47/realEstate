@@ -1,0 +1,66 @@
+
+import django
+from myapp.models import Property, PropertyCategory, Property_Sector, Property_Facing, PropertyImages, Country, Province, City
+
+Property.objects.all()
+
+PropertyCategory.objects.all()
+
+Property_Sector.objects.all()
+
+Property_Facing.objects.all()
+
+PropertyImages.objects.all()
+
+Country.objects.all()
+
+Province.objects.all()
+
+City.objects.all()
+
+
+part-2
+
+1) Property.objects.filter(propertyFacing_id = Property_Facing.objects.filter(propertyFacingName = 'North')[0])
+
+2)Property.objects.filter(propertyCity_id =   City.objects.filter(cityName = 'Windsor')[0])
+
+3)Property.objects.filter(propertyTotalArea__gt = 1200)
+
+4)Property.objects.filter(propertyTotalArea__gt = 1200).filter(propertyCity_id = City.objects.filter(cityName = 'Windsor')[0])
+
+5)Property.objects.filter(propertyNumberofRooms__gt = 2).filter(propertyCity_id =   City.objects.filter(cityName = 'Toronto')[0])
+
+6)Property.objects.exclude(propertyProvince_id =   Province.objects.filter(provinceName = 'Ontario')[0])
+
+7)Property.objects.filter(propertyAskingPrice__lt = 100000.00)
+
+8)Property.objects.filter(propertyAskingPrice__gte = 200000.00).filter(propertyCategory_id = PropertyCategory.objects.filter(propertyCategoryName = 'Single House')[0])
+
+9)
+from django.db.models import Count
+idsOfPI=PropertyImages.objects.values('propertyID_id').annotate(user_count=Count('propertyID_id')).filter(user_count__gt=1).values('propertyID_id')
+Property.objects.filter(propertyCategory_id__propertyCategoryName = 'Appartment').filter(propertyID__in=idsOfPI)
+
+10)City.objects.order_by('countryName','provinceID__provinceName','cityName')
+
+11)from django.db.models import Q
+Property.objects.filter(Q(propertyCategory_id = PropertyCategory.objects.filter(propertyCategoryName = 'Single House')[0])|Q(propertyCategory_id = PropertyCategory.objects.filter(propertyCategoryName = 'Attached House')[0])|Q(propertyCategory_id = PropertyCategory.objects.filter(propertyCategoryName = 'Appartment')[0])).order_by('propertyCategory_id__propertyCategoryName','propertyAskingPrice')
+
+sequence of table:-
+1)property_category
+2)country
+3)province
+4)city
+5)property_facing
+6)propertysector
+7)property
+8)property_image
+Users
+RoleCode
+UserRole
+Password
+PermissionType
+RolePermission
+RolePermissionDetail
+Advertisement

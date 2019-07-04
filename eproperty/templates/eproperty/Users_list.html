@@ -1,0 +1,116 @@
+{% extends "sidebar_base.html" %}
+
+{% load static %}
+
+{% block customCSS %}
+     <link rel="stylesheet" href="{% static '/css/sb-admin.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div  class="formPaddingBox">
+     <div class="card mb-3">
+				<div class="card-header">
+					<i class="fa fa-table"></i> Manage Users
+				</div>
+                <br>
+                <div style="padding: 1% 1% 1% 1%">
+                     <a href="{% url 'eproperty:Users_create' %}" class="btn btn-primary">
+                 Add New User</a>
+               </div>
+
+
+     {% comment %} {% for user in users_list %}
+        <article>
+          <header>
+            <h2>
+              <a href="{{ post.get_absolute_url }}">
+                {{ post.title|title }}</a>
+            </h2>
+              <ul>
+                  <li>
+                    <a href="{{ post.get_update_url }}">
+                      Edit Post</a></li>
+                  <li>
+                    <a href="{{ post.get_delete_url }}">
+                      Delete Post</a></li>
+              </ul>
+            <p>
+              Written on:
+              <time datetime="{{ post.pub_date|date:"Y-m-d" }}">
+                {{ post.pub_date|date:"l, F j, Y" }}
+              </time>
+            </p>
+          </header>
+          <p>{{ post.text|truncatewords:20 }}</p>
+          <p>
+            <a href="{{ post.get_absolute_url }}">
+              Read more&hellip;</a>
+          </p>
+        </article>
+      {% empty %}
+        <p><em>No Blog Posts Available</em></p>
+      {% endfor %}{% endcomment %}
+    <br>
+
+    <div class="table-responsive">
+						<table class="table table-bordered" id="dataTable" width="100%"
+							cellspacing="0">
+							<thead>
+								<tr>
+									<th>First Name</th>
+									<th>Last Name</th>
+									<th>Email Address</th>
+                                    <th>Is User Active</th>
+									<th>Link</th>
+								</tr>
+							</thead>
+							<tfoot>
+								<tr>
+									<th>First Name</th>
+									<th>Last Name</th>
+									<th>Email Address</th>
+                                    <th>Is User Active</th>
+									<th>Link</th>
+								</tr>
+							</tfoot>
+							<tbody>
+
+
+								 {% for user in password_list %}
+									<tr>
+
+										<td>{{ user.user_ID.firstName }}</td>
+										<td>{{ user.user_ID.lastName }}</td>
+										<td>{{ user.user_ID.email }}</td>
+                                        <td>{{ user.isActive }}</td>
+										<td> <a href="{% url 'eproperty:Users_update' user.user_ID.user_ID %}">Edit</a> &nbsp;
+                                        <a href="javascript:deleteFromURL('{% url 'eproperty:Users_delete' user.user_ID.user_ID %}', 'User')">Delete</a> &nbsp;&nbsp;
+                                            {% if user.isActive %}
+                                                  <a href="{% url 'eproperty:ResetUserPassword' user.password_ID %}">Reset Password</a>
+                                            {% else %}
+                                                  <a href="{% url 'eproperty:ActivateUser' user.password_ID %}">Activate</a>
+                                            {% endif %}
+
+                                        </td>
+
+									</tr>
+								 {% endfor %}
+
+
+
+							</tbody>
+						</table>
+					</div>
+  </div>
+
+</div>
+
+{% endblock %}
+
+{% block jsBlock %}
+    <script src="{% static '/vendors/datatables/jquery.dataTables.js' %}"></script>
+    <script src="{% static '/vendors/datatables/dataTables.bootstrap4.js' %}"></script>
+    <script src="{% static '/js/sb-admin-datatables.js' %}"></script>
+ {% endblock %}
+
+

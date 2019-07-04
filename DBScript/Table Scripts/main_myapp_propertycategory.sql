@@ -1,0 +1,10 @@
+INSERT INTO myapp_propertycategory (propertyCategoryName, propertyCategory) VALUES ('Single House', 1);
+INSERT INTO myapp_propertycategory (propertyCategoryName, propertyCategory) VALUES ('Attached House', 2);
+INSERT INTO myapp_propertycategory (propertyCategoryName, propertyCategory) VALUES ('Town House', 3);
+INSERT INTO myapp_propertycategory (propertyCategoryName, propertyCategory) VALUES ('Appartment', 4);
+INSERT INTO myapp_propertycategory (propertyCategoryName, propertyCategory) VALUES ('Store', 5);
+INSERT INTO myapp_propertycategory (propertyCategoryName, propertyCategory) VALUES ('Farm', 6);
+INSERT INTO myapp_propertycategory (propertyCategoryName, propertyCategory) VALUES ('Factory', 7);
+INSERT INTO myapp_propertycategory (propertyCategoryName, propertyCategory) VALUES ('Mall', 8);
+INSERT INTO myapp_propertycategory (propertyCategoryName, propertyCategory) VALUES ('Building', 9);
+INSERT INTO myapp_propertycategory (propertyCategoryName, propertyCategory) VALUES ('Other', 10);

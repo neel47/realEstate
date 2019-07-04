@@ -1,0 +1,11 @@
+INSERT INTO myapp_city (cityName, countryName_id, provinceID_id, cityID) VALUES ('Windsor', 1, 1, 1);
+INSERT INTO myapp_city (cityName, countryName_id, provinceID_id, cityID) VALUES ('Montreal', 1, 2, 2);
+INSERT INTO myapp_city (cityName, countryName_id, provinceID_id, cityID) VALUES ('Edmonton', 1, 3, 3);
+INSERT INTO myapp_city (cityName, countryName_id, provinceID_id, cityID) VALUES ('Winnipeg', 1, 4, 4);
+INSERT INTO myapp_city (cityName, countryName_id, provinceID_id, cityID) VALUES ('Vancouver', 1, 5, 5);
+INSERT INTO myapp_city (cityName, countryName_id, provinceID_id, cityID) VALUES ('Toronto', 1, 1, 6);
+INSERT INTO myapp_city (cityName, countryName_id, provinceID_id, cityID) VALUES ('Ottawa', 1, 1, 7);
+INSERT INTO myapp_city (cityName, countryName_id, provinceID_id, cityID) VALUES ('NewYork', 2, 6, 8);
+INSERT INTO myapp_city (cityName, countryName_id, provinceID_id, cityID) VALUES ('Detroit', 2, 7, 9);
+INSERT INTO myapp_city (cityName, countryName_id, provinceID_id, cityID) VALUES ('PaloAlto', 2, 8, 10);
+INSERT INTO myapp_city (cityName, countryName_id, provinceID_id, cityID) VALUES ('SanFransisco', 2, 8, 11);
